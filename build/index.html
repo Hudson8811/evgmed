@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<style>
+	.preloader{
+		background-color: #EA7E1D;
+		position: fixed;
+		z-index: 99999999;
+		left: 0;
+		top: 0;
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: opacity 0.4s ease;
+	}
+	.preloader__center{
+		position: relative;
+		width: 190px;
+		height: 190px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.preloader__center > svg{
+		transform: scale(1.1875) rotate(90deg);
+	}
+	#preloaderCircle{
+		transition: 0.2s;
+	}
+	.preloader__icons{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.preloader__icons svg{
+		height: 75px;
+		display: none;
+	}
+	.preloader__icons svg polygon,
+	.preloader__icons svg path{
+		fill: #16191B;
+	}
+</style>
+<script>
+	(function(){
+		function loadbar() {
+			var ovrl = document.getElementById("preloader"),
+					prog = document.getElementById("preloaderCircle"),
+					img = document.images,
+					c = 0;
+			var startProgress = 490.157;
+			tot = img.length
+			function imgLoaded(){
+				c += 1;
+				var perc = ((100/tot*c) << 0);
+				prog.style.strokeDashoffset  = startProgress - (startProgress/100)*perc;;
+				if(c===tot) return doneLoading();
+			}
+			function doneLoading(){
+				ovrl.style.opacity = 0;
+				setTimeout(function(){
+					ovrl.style.display = "none";
+					ovrl.remove();
+					clearInterval(myVar)
+				}, 600);
+			}
+			for(let i=0; i<img.length; i++) {
+				let tImg     = new Image();
+				tImg.onload  = imgLoaded;
+				tImg.onerror = imgLoaded;
+				tImg.src     = img[i].src;
+			}
+		}
+
+		function progressbar(percent){
+			var preloaderIcons = document.getElementById("preloaderIcons");
+			var myP = preloaderIcons.getElementsByTagName('svg');
+			for (var i = 0; i < myP.length; i++) {
+				myP[i].style.display = "none"
+			}
+			myP[percent].style.display = "block";
+		}
+		var elapsedTime=0;
+		function timerPreloader()
+		{
+			progressbar(Math.floor(elapsedTime%11));
+			elapsedTime++;
+		}
+
+		var myVar=setInterval(function(){timerPreloader()},200);
+		document.addEventListener('DOMContentLoaded', loadbar, false);
+	}());
+</script>
+
+<div class="preloader" id="preloader">
+	<div class="preloader__center">
+		<svg width="160" height="160">
+			<path id="preloaderCircle" fill="none" stroke-width="4" stroke="#16191B" d="M80,2 A78,78 0 1 1 79.99950991154603,2.000000001539661" style="stroke-dasharray: 490.157, 490.157; stroke-dashoffset: 490.157;"></path>
+		</svg>
+		<div class="preloader__icons" id="preloaderIcons">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5" >
+				<path d="M144.4,107c-18.3,0-36.4-0.1-54.8-0.1c0,0,0.9,4.4,5.5,7.6c5,3.5,13.3,5.2,22.9,3.9c8.4-1.1,11.4-5,11.9-6.5l13.3,0 c0,0-1.2,5.4-9.1,10.7c-8,5.4-22.6,7.2-36.9,3.5c-14.7-3.8-20-13.8-20.9-20.5c-0.7-4.9,0.6-8.8,1.2-10.2 c2.3-6.1,12.6-17.3,31.9-17.5c14.4-0.2,26.9,5.5,32.1,15C144.8,99.1,144.6,104.3,144.4,107z M130.6,99.2c0,0-0.4-1.3-1.6-3.4 c-6.5-10.8-23.1-10.4-30.6-6.4c-8.2,4.3-8.8,9.8-8.8,9.8L130.6,99.2z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66.26 66.26">
+				<polygon points="65.74 48.91 59.81 48.91 29.63 48.91 66.26 12.27 53.99 0 17.36 36.63 17.36 0.53 0 0.53 0 66.26 65.74 66.26 65.74 48.91"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5" >
+				<path d="M143.4,78.7c-7.9,14-22.1,38.8-27.4,48.3h-12.4c-9-15.9-18.4-31-28.1-48.3h13.5l20.8,38l20.5-38H143.4z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 231.03 231.03">
+				<path d="M93.49,57.39h44.05c-.93-4.06-1.95-7.88-3.06-11.42-5.2-16.64-11.93-26.94-19-26.94s-13.77,10.3-19,26.94C95.44,49.51,94.42,53.33,93.49,57.39Z"/>
+				<path d="M92.14,167.22h46.75a274.5,274.5,0,0,0,4.55-48.48H87.59A274.5,274.5,0,0,0,92.14,167.22Z"/>
+				<path d="M68.57,46.86a95.13,95.13,0,0,0-6.41,10.53H86.91c1-4.76,2.22-9.22,3.51-13.33,3-9.6,6.68-17.39,10.85-22.82C88.7,25.2,77.43,34.27,68.57,46.86Z"/>
+				<path d="M48.67,118.74a127.44,127.44,0,0,0,10.4,48.48H85.6a282.33,282.33,0,0,1-4.44-48.48Z"/>
+				<path d="M59.07,63.82a127.36,127.36,0,0,0-10.4,48.48H81.16A282.23,282.23,0,0,1,85.6,63.82Z"/>
+				<path d="M138.89,63.82H92.14a274.5,274.5,0,0,0-4.55,48.48h55.85A274.5,274.5,0,0,0,138.89,63.82Z"/>
+				<path d="M144.12,57.39h24.75a95.13,95.13,0,0,0-6.41-10.53c-8.85-12.59-20.13-21.66-32.7-25.62,4.18,5.43,7.85,13.22,10.85,22.82C141.9,48.17,143.07,52.63,144.12,57.39Z"/>
+				<path d="M188.8,112.3H212A96.08,96.08,0,0,0,197,63.82H179A135.21,135.21,0,0,1,188.8,112.3Z"/>
+				<path d="M145.43,167.22H172a127.63,127.63,0,0,0,10.39-48.48H149.87A282.33,282.33,0,0,1,145.43,167.22Z"/>
+				<path d="M167.71,43.17a101.88,101.88,0,0,1,8.34,14.22h16.48A96.74,96.74,0,0,0,152,26.17,82.83,82.83,0,0,1,167.71,43.17Z"/>
+				<path d="M172,63.82H145.43a282.23,282.23,0,0,1,4.44,48.48h32.49A127.54,127.54,0,0,0,172,63.82Z"/>
+				<path d="M162.46,184.17a95,95,0,0,0,6.41-10.52H144.12c-1.05,4.76-2.22,9.22-3.51,13.32-3,9.61-6.67,17.4-10.85,22.82C142.33,205.84,153.61,196.77,162.46,184.17Z"/>
+				<path d="M167.71,187.87a83.35,83.35,0,0,1-15.72,17,97,97,0,0,0,40.54-31.22H176.05A101.88,101.88,0,0,1,167.71,187.87Z"/>
+				<path d="M137.54,173.65h-44c.93,4,2,7.87,3.06,11.41,5.2,16.65,11.93,26.94,19,26.94s13.76-10.29,19-26.94C135.59,181.52,136.61,177.7,137.54,173.65Z"/>
+				<path d="M179,167.22H197A96.08,96.08,0,0,0,212,118.74H188.8A135.26,135.26,0,0,1,179,167.22Z"/>
+				<path d="M42.23,118.74H19.09a95.88,95.88,0,0,0,15,48.48h18A135.26,135.26,0,0,1,42.23,118.74Z"/>
+				<path d="M63.32,43.17a82.59,82.59,0,0,1,15.73-17A96.7,96.7,0,0,0,38.5,57.39H55A103.89,103.89,0,0,1,63.32,43.17Z"/>
+				<path d="M86.91,173.65H62.16a95,95,0,0,0,6.41,10.52c8.86,12.6,20.13,21.67,32.7,25.62-4.17-5.42-7.85-13.21-10.85-22.82C89.13,182.87,88,178.41,86.91,173.65Z"/>
+				<path d="M52.08,63.82H34A95.88,95.88,0,0,0,19.09,112.3H42.23A135.21,135.21,0,0,1,52.08,63.82Z"/>
+				<path d="M63.32,187.87A103.89,103.89,0,0,1,55,173.65H38.5a97,97,0,0,0,40.55,31.22A83.11,83.11,0,0,1,63.32,187.87Z"/>
+				<path d="M224.35,115.52h-6.69a102.15,102.15,0,1,1-29.92-72.23,101.75,101.75,0,0,1,29.92,72.23H231A115.52,115.52,0,1,0,115.52,231,115.5,115.5,0,0,0,231,115.52Z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5">
+				<path d="M141.4,94.4c0,0,1.7-6.6-4.5-7.5c-2.3-0.4-4.2,0-6.1,1.3c0.8,0.8,1.5,1.7,1.5,1.7c0.9,1.2,1.6,2.4,2.2,3.6 c0.8,1.5,2.3,5.9,1.1,10.8c-1.5,6.2-6.6,9.7-9.5,11.4c-9.3,5.3-25.6,5.8-36.6,3.5c-0.6-0.1-2.1-0.3-3.5-0.3 c-6.1,0.3-6.7,3.5-2.8,4.6c2.8,0.7,8.9,0.8,19,0.6c10.7-0.1,20.1,0.2,27.2,2.2c5.9,1.6,11.2,5.5,13.3,12.3 c1.7,5.5,0.5,12.6-4.3,17.5c-8.6,8.8-23.2,10.8-30.4,11c-16.5,0.6-26.8-1.6-33.5-5.3c-3.1-1.7-7.4-4.8-8.5-9.3 c-2.5-10.2,6.3-15.1,9.4-16.5c4-1.9,6.6-2.4,6.6-2.4c-1.7-0.1-2.7-0.3-4.6-0.9c-2.6-0.8-4.7-2.1-6-3.8c-2-2.8-1.7-6.6,0.6-9.1 c2-2,5.5-3,8.8-3.6c-2.8-1.5-4.7-2.9-5.9-4.2c-5.1-5.2-6.6-13.1-2-21c4.4-7.5,15-13.1,30.3-13.1c10.4,0,18,2.7,23.2,6.4 c0.5,0.4,0.9,0.7,1.2,1c0,0,1.3-3.2,5.1-5.1c6.5-3.3,20.3-2.9,21.9,9.1c0.4,2.7,0,5,0,5L141.4,94.4z M77.3,145.6 c0.5,6.9,11.6,11.8,26.6,11.8c15,0,25.2-5.5,26.4-11.4c0.7-3.8-1.1-8.7-7.7-10.4c-4.7-1.2-12.3-1.9-18.7-1.9 c-6.2,0-12.3,0.1-17.9,1.8C79.5,137.5,77,142,77.3,145.6z M122.6,95.9c-1.3-2.9-3.4-4.5-4.7-5.4c-2.9-2.1-5.9-2.8-8.2-3.3 c-1.6-0.4-5.1-1.1-9.5-0.5c-1.6,0.2-6.6,0.9-10.6,3.4c-7.4,4.6-7.8,12.5-2.5,17.1c5.8,5,21.3,5,29.1,2.3c4.2-1.4,6.6-3.7,7.4-7.2 C124.1,99.5,123,96.8,122.6,95.9z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 363.72 234.62">
+				<path d="M232.82,72.66a67.75,67.75,0,0,1-95.62,95.61Zm-51-23.12A67.76,67.76,0,0,0,130.9,162l95.61-95.62A67.47,67.47,0,0,0,181.86,49.54Zm181.86,67.77c0,16.54-5.29,32.28-14.69,46.4s-22.86,26.67-39.34,37.16c-33,21-78.08,33.74-127.83,33.75-1.48,0-3,0-4.43-.06-32.77-.5-63.39-6.55-89.71-16.81l-15,15a4.45,4.45,0,1,1-6.3-6.3l12.4-12.4c-27.94-12.38-50.37-29.68-64.13-50.34C5.29,149.59,0,133.85,0,117.31S5.29,85,14.69,70.92,37.54,44.24,54,33.75C87,12.79,132.1,0,181.86,0c1.48,0,3,0,4.43.05C219.06.56,249.68,6.61,276,16.87L291.22,1.65a4.45,4.45,0,0,1,6.3,6.3L284.9,20.57C312.84,33,335.27,50.25,349,70.92,358.43,85,363.72,100.77,363.72,117.31ZM272.28,33.2l-4.38,4.38a117.29,117.29,0,0,1-17.54,175,147.79,147.79,0,0,0,33.39-19c25.92-19.81,41.57-46.73,41.58-76.26s-15.66-56.45-41.58-76.25A134.69,134.69,0,0,0,272.28,33.2ZM80,41.06C54,60.86,38.39,87.79,38.39,117.31S54,173.76,80,193.57a137.14,137.14,0,0,0,11.48,7.85L95.82,197a117.3,117.3,0,0,1,17.54-175A148.14,148.14,0,0,0,80,41.06Zm1,164.22q-3.3-2.24-6.44-4.63c-27.62-21-45.09-50.54-45.08-83.34S46.94,55,74.56,34c2.06-1.58,4.19-3.1,6.36-4.58-26,11.79-46.53,28-58.81,46.46-8.56,12.89-13.19,26.84-13.2,41.46s4.64,28.57,13.2,41.46,21.08,24.64,36.7,34.58A177.92,177.92,0,0,0,81,205.28ZM181.86,225.7A108.38,108.38,0,0,0,261.59,43.89l-10.06,10a4.45,4.45,0,0,1-6.3-6.3l10.05-10.06A108.39,108.39,0,0,0,102.13,190.74l10.28-10.28a4.46,4.46,0,1,1,6.3,6.31L108.43,197A108,108,0,0,0,181.86,225.7ZM354.8,117.31c0-14.62-4.63-28.57-13.19-41.46s-21.08-24.64-36.7-34.58a176.75,176.75,0,0,0-22.2-11.93Q286,31.57,289.16,34c27.62,21,45.08,50.54,45.08,83.34s-17.46,62.3-45.08,83.34q-3.09,2.35-6.36,4.57c26-11.78,46.53-28,58.81-46.45C350.17,145.88,354.8,131.94,354.8,117.31Z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5" >
+				<path d="M169.9,108.4c0,9.3,0,9.5,0,18.8h-12.5c0-8.4,0-11.4,0-19.9c0-8.2-1.6-12.8-6.3-16.5c-5-3.9-15.9-4.3-22.6-1.2 c-2.7,1.2-5.9,3-8.8,7.5c-2.1,3.3-3.2,6.9-3.4,13.9v16.2h-12.5c0-8.4,0-11.5,0-19.9c0-8.2-1.6-12.7-6.3-16.5 c-4.6-3.7-14-4.5-21.8-1.5c-2.7,1-6.6,3.4-9.6,7.8c-1.3,2-3.2,5.7-3.4,11.8c-0.2,7.4,0,10.9,0,18.3H50.4V78.9h12.1 c0,4.8,0,9.9,0,14.8c0,0,2.7-6.6,8.3-10.7c4.7-3.3,11.2-5,17.6-4.9c4.7,0.1,12.1,0.6,19.1,6.2c3.9,3.2,6.1,6.7,7.3,10.9 c0,0,2.5-6.8,9.6-12.2c4.6-3.4,11.2-5,17.6-4.9c4.7,0,12.1,0.6,19.1,6.2c6.4,5.2,8.8,13.5,8.7,19.3 C169.8,105.5,169.9,107.3,169.9,108.4z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.7 202.85">
+				<path d="M2.86,125.72h197a99.86,99.86,0,0,1-3,9.89H5.83A99.82,99.82,0,0,1,2.86,125.72ZM101.35,0A101.45,101.45,0,0,0,8.93,59.58H193.76A101.43,101.43,0,0,0,101.35,0Zm100.5,87.7H.85C.41,91,.12,94.25,0,97.6H202.7Q202.51,92.58,201.85,87.7ZM197.3,68.49H5.39A101.83,101.83,0,0,0,2.46,78.78H200.23A99.29,99.29,0,0,0,197.3,68.49ZM1.08,116.8H201.62a102.42,102.42,0,0,0,1-10.29H.05A102.42,102.42,0,0,0,1.08,116.8Zm100.27,86.05a101.43,101.43,0,0,0,91.83-58.32H9.52A101.42,101.42,0,0,0,101.35,202.85Z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5">
+				<path d="M144.4,107c-18.3,0-36.4-0.1-54.8-0.1c0,0,0.9,4.4,5.5,7.6c5,3.5,13.3,5.2,22.9,3.9c8.4-1.1,11.4-5,11.9-6.5l13.3,0 c0,0-1.2,5.4-9.1,10.7c-8,5.4-22.6,7.2-36.9,3.5c-14.7-3.8-20-13.8-20.9-20.5c-0.7-4.9,0.6-8.8,1.2-10.2 c2.3-6.1,12.6-17.3,31.9-17.5c14.4-0.2,26.9,5.5,32.1,15C144.8,99.1,144.6,104.3,144.4,107z M130.6,99.2c0,0-0.4-1.3-1.6-3.4 c-6.5-10.8-23.1-10.4-30.6-6.4c-8.2,4.3-8.8,9.8-8.8,9.8L130.6,99.2z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.47 221.47">
+				<polygon points="221.47 92.98 153.6 92.98 201.59 44.99 176.48 19.88 128.49 67.86 128.49 0 92.98 0 92.98 67.86 44.99 19.88 19.88 44.99 67.86 92.98 0 92.98 0 128.49 67.86 128.49 19.88 176.48 44.99 201.59 92.98 153.6 92.98 221.47 128.49 221.47 128.49 153.6 176.48 201.59 201.59 176.48 153.6 128.49 221.47 128.49 221.47 92.98"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 221.5 221.5">
+				<path d="M144.9,54l0.1,81.3h-12.2V126c0,0-6.8,8.7-23.7,10.2c-18.9,1.6-38.4-7.6-38.4-25.1c0-18.8,19.2-27,38.4-25 c17.4,1.8,23.7,12.7,23.7,12.7L132.6,54H144.9z M130.3,110.8c0-8.5-10.1-15.1-21.3-15.5c-13.3-0.5-25.3,3.8-25.1,15.8 c0.2,11,11.5,15.9,25.1,15.2C120.8,125.7,130.3,119.4,130.3,110.8z"/>
+			</svg>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="portfolio-hero">
+	<div class="portfolio-hero__img">
+		<picture>
+			<source srcset="img/hero.jpg" media="(min-width: 801px)">
+			<img src="img/hero-mob.jpg" alt="">
+		</picture>
+	</div>
+</div>
+
+<div class="page portfolio-page disable-images">
+	<div class="container">
+		<div class="portfolio-top container-text">
+			<h1 class="portfolio-top__title">Дизайн для «Sochi Autodrom»</h1>
+			<div class="portfolio-top__tags">
+				<a href="" class="portfolio-top__tag">Сайт</a>
+				<a href="" class="portfolio-top__tag">Брендинг</a>
+				<a href="" class="portfolio-top__tag">SMM</a>
+				<a href="" class="portfolio-top__tag">Сайт</a>
+				<a href="" class="portfolio-top__tag">Брендинг</a>
+				<a href="" class="portfolio-top__tag">SMM</a>
+			</div>
+			<div class="portfolio-top__text">
+				<i>Задача:</i> Задизайнить эффектные офферы для гонки.
+				<br><br><br>
+				Шестнадцатый этап чемпионата мира «Формулы-1» 2019 года прошёл на трассе «Сочи Автодром». Это был 6-й Гран-при России в истории России в рамках чемпионатов «Формулы-1».
+				<br><br>
+				<a href="https://house88.ru">house88.ru</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="banner-portfolio" style="background-image: url('img/banner.jpg')"></div>
+	<div class="section-portfolio">
+		<div class="container">
+			<div class="text-portfolio container-text">
+				<h2 class="text-portfolio_title">Создание контента</h2>
+				<p>Для армтсронга мы тут отфоткали классные штуки O.T. Genasis, пять лет назад выстреливший хитом про любовь к "коко", и давно не даваший серьезных поводов вспоминать о себе, выпустил клип "Never Knew".</p>
+				<p>Это вольный ремейк хита Keyshia Cole "Love" 14-летней давности, исполненный в стиле пьяного караоке — это когда человеку очевидно недостает вокальных данных, но его это мало смущает.</p>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row third-row ">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row third-row ">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+	</div>
+	<div class="section-portfolio" style="background: #f3f5f6">
+		<div class="container">
+			<div class="text-portfolio container-text">
+				<h2 class="text-portfolio_title">Дизайн аккаунта</h2>
+				<p>Был выбран фирменный шрифт и цвета для усиления и повышения узнаваемости бренда. Был разработан
+					брендбук для авыдлоааждл оаводвадв давжадвждж авжждав</p>
+
+			</div>
+		</div>
+		<div class="container">
+			<div class="row double-row">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row double-row">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+	</div>
+	<div class="section-portfolio">
+		<div class="container">
+			<div class="text-portfolio container-text">
+				<h2 class="text-portfolio_title">Дизайн</h2>
+				<p>Были разработаны фирменные закрепы для сторис, используем натуральные материалы,
+					типа бумаги — чтобы подчеркнуть натуральность изделий.</p>
+
+			</div>
+		</div>
+		<div class="container-inner">
+			<div class="row fifth-row">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')"><img src="img/portfolio/armstrong/item1.jpg"
+																																																	 alt=""></div>
+			</div>
+		</div>
+	</div>
+	<div class="section-portfolio" style="background: #f3f5f6" id="a1">
+		<div class="container">
+			<div class="text-portfolio container-text">
+				<h2 class="text-portfolio_title">Создание Motion-видео</h2>
+				<p>Для армтсронга мы тут отфоткали классные штуки O.T. Genasis, пять лет назад выстреливший хитом про</p>
+
+			</div>
+		</div>
+		<div class="container">
+			<div class="row third-row ">
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')">
+
+					<a  class="video-link" href="javascript:;" onclick="openVideo(this);"></a>
+					<div class="hide video-modal">
+						<div class="prop-blck">
+							<video class="video-player" controls crossorigin playsinline >
+								<source src="452.mp4" type='video/mp4'>
+							</video>
+						</div>
+					</div>
+				</div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')">
+
+					<a  class="video-link" href="#video-2" data-fancybox data-type="inline" data-touch="false"></a>
+					<div id="video-2" class="hide video-modal">
+						<div class="prop-blck">
+							<video class="video-player" controls crossorigin playsinline >
+								<source src="452.mp4" type='video/mp4'>
+							</video>
+						</div>
+					</div>
+				</div>
+				<div class="block" style="background-image: url('img/portfolio/armstrong/item1.jpg')">
+
+					<a  class="video-link" href="#video-3" data-fancybox data-type="inline" data-touch="false"></a>
+					<div id="video-3" class="hide video-modal">
+						<div class="prop-blck">
+							<video class="video-player" controls crossorigin playsinline >
+								<source src="452.mp4" type='video/mp4'>
+							</video>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="text-section-portfolio">
+		<div class="container">
+			<h2 class="ah2">Таргетированная реклама</h2>
+			<div class="flex-block">
+				<div>
+					<h3 class="ah3">Цели и задачи: </h3>
+					<ol>
+						<li>Увеличить количество продаж с сайта с помощью настройки таргетированной рекламы</li>
+						<li>Увеличить узнаваемость бренда в социальной сети Instagram</li>
+					</ol>
+				</div>
+				<div>
+					<h3 class="ah3">Цели и задачи: </h3>
+					<p>Так как ранее таргетинг настраивался крайне редко, нашей задачей было найти основные ядра аудиторий, на основе который мы бы смогли масштабировать рекламную кампанию и привлекать целевую аудиторию на сайт.</p>
+					<p>В общей сложности было запущено 112 кампаний для выявления лучших рекламных связок для дальнейшего использования.</p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="question-portfolio">
+			<div class="container">
+				<p>Есть вопросы?</p>
+				<p>Пишите на <a href="mailto:info@smmagnat.ru">info@smmagnat.ru</a></p>
+			</div>
+		</div>
+
+	</div>
+	<div class="more-klients-grid">
+		<div class="container">
+			<h2 class="ah2">Ещё кейсы:</h2>
+			<div class="flex-block">
+				<a class="klients-item" href="">
+                        <span class="img-block">
+                            <img src="img/klietn-test-1.jpg" alt="">
+                        </span>
+					<span class="info">
+                                <span class="title">Изделия из кожи  «Armstrong»</span>
+                                <span class="text">Разработка концепции продвижения пр кта мммиыиыикцкцккувцроы</span>
+                            </span>
+
+				</a>
+				<a class="klients-item" href="">
+                        <span class="img-block">
+                            <img src="img/klietn-test-2.jpg" alt="">
+
+                        </span>
+					<span class="info">
+                                <span class="title">Зубная паста «Biorepair»</span>
+                                <span class="text">Разработка концепции продвижения пр кта мммиыиыикцкцккувцроы</span>
+                            </span>
+				</a>
+				<a class="klients-item" href="">
+                        <span class="img-block">
+                            <img src="img/klietn-test-3.jpg" alt="">
+
+                        </span>
+					<span class="info">
+                            <span class="title">Сеть ресторанов «Чайхона №1»</span>
+                            <span class="text">Разработка концепции продвижения пр кта мммиыиыикцкцккувцроы</span>
+                        </span>
+				</a>
+				<a class="klients-item" href="">
+                        <span class="img-block">
+                            <img src="img/klietn-test-1.jpg" alt="">
+                        </span>
+					<span class="info">
+                                <span class="title">Изделия из кожи  «Armstrong»</span>
+                                <span class="text">Разработка концепции продвижения пр кта мммиыиыикцкцккувцроы</span>
+
+                        </span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+<script src="js/main.js"></script>
+</html>

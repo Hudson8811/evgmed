@@ -1,0 +1,67 @@
+.thx-alert {
+	border-radius: 30px;
+	background-color: $orange;
+	width: 415px;
+	z-index: 100;
+	box-sizing: border-box;
+	padding: 35px 56px 20px;
+	cursor: pointer;
+	user-select: none;
+	display: none;
+	overflow: visible;
+
+	&__title{
+		font-size: 33px;
+		color: #fff;
+		line-height: 1.2;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+
+	&__text {
+		font-size: 16px;
+		color: #fff;
+		line-height: 1.2;
+		text-align: center;
+	}
+
+	&__btn {
+		background-color: rgba(255, 255, 255, .33);
+		width: 260px;
+		height: 49px;
+		margin: 29px auto 0;
+		font-size: 16px;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 49px;
+		transition: .3s
+	}
+
+	&:hover{
+		.thx-alert__btn{
+			background-color: #000;
+			color: #fff;
+			cursor: pointer;
+		}
+	}
+
+	.fancybox-close-small{
+		width: 43px;
+		height: 43px;
+		background-color: $orange;
+		color: #fff;
+		opacity: 1;
+		border-radius: 100%;
+		right: -35px;
+		top: -35px;
+		padding: 7px;
+		display: none;
+
+		&:hover{
+			background-color: #000;
+			color: #fff
+		}
+	}
+}

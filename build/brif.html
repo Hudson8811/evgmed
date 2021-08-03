@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Тайтл</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="header header--portfolio">
+        <div class="container header__container">
+            <div class="left">
+                <a href="" class="logo">
+    							<img src="img/logo-light.svg" alt="">
+    						</a>
+            </div>
+            <div class="right">
+                <div class="contacts">
+                    <a href="mailto:">hello@evgmed.com</a>
+                    <div>По всем вопросам</div>
+                </div>
+                <button type="button" class="btn" onclick="callPopupBrif();">Давайте работать</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <form class="brif off-brif-btn">
+            <div class="brif__title">Digital-студия полного цикла
+                в социальных сетях</div>
+            <div class="brif__desc">Оставьте заявку на интересующую вас услугу и мы свяжемся с вами в ближайшее время
+                чтобы
+                обсудить детали.
+            </div>
+            <div class="brif__radios-title">Что вас интересует?</div>
+            <div class="brif__radios-block">
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-1" checked><label
+                        for="radio-1" class="brif-rad-item__label">SMM</label></div>
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-2"><label for="radio-2"
+                        class="brif-rad-item__label">Брендинг</label></div>
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-3"><label for="radio-3"
+                        class="brif-rad-item__label">Упаковка</label></div>
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-4"><label for="radio-4"
+                        class="brif-rad-item__label">Motion-дизайн</label></div>
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-5"><label for="radio-5"
+                        class="brif-rad-item__label">Таргетированная реклама</label></div>
+                <div class="brif-rad-item"><input type="radio" name="brif-radio" id="radio-6"><label for="radio-6"
+                        class="brif-rad-item__label">Стратегия</label></div>
+            </div>
+            <div class="brif__t-inputs">
+                <input type="text" name="" id="" class="brif-inp" placeholder="Название компании">
+                <input type="text" name="" id="" class="brif-inp" placeholder="Ссылки на соц. сети и сайт компании">
+                <input type="text" name="" id="" class="brif-inp" placeholder="Кратко опишите задачу">
+                <input type="text" name="" id="" class="brif-inp" placeholder="Почта или ник в Telegram">
+                <input type="text" name="" id="" class="brif-inp" placeholder="Имя">
+            </div>
+            <input type="text" name="" id="" class="brif-btn" value="Отправить заявку">
+        </form>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="container footer__container">
+    			<div class="footer__top">
+    				<div class="footer__logo">
+    					<a href="">
+    						<img src="img/logo-dark.svg" alt="">
+    					</a>
+    				</div>
+    				<a class="footer__title footer__title--link" href="mailto:hello@evgmed.com">hello@evgmed.com</a>
+    			</div>
+    			<div class="footer__bottom">
+    				<div class="footer__row footer__row--left">
+    					<a class="footer__link" href="">Политика обработки персональных данных</a>
+    				</div>
+    				<div class="footer__row footer__row--right">
+    					<a class="footer__link" href="">Бриф</a>
+    					<a class="footer__link" href="" target="_blank">Telegram</a>
+    					<a class="footer__link" href="" target="_blank">Instagram</a>
+    				</div>
+    			</div>
+        </div>
+    </footer>
+
+    <div id="popup-register-ti" class="hide popup-register-ti">
+        <div class="pop-reg-ti-top">
+            <div class="pop-reg-ti-top__course-name">Копирайтинг</div>
+            <div class="pop-reg-ti-top__start-date"> Старт курса 18 мая</div>
+        </div>
+        <div class="pop-reg-ti-main">
+            <div class="pop-reg-ti-main__left">
+                <div class="prti-input-box">
+                    <div class="prti-input-box__name">Почта</div>
+                    <div class="prti-input-box__desc">На неё придёт квитанция об оплате</div>
+                    <input type="text" name="" id="" placeholder="Напишите почту" class="prti-input-box__inp">
+                </div>
+            </div>
+            <div class="pop-reg-ti-main__right">
+                <div class="prti-input-box">
+                    <div class="prti-input-box__name">Ник в Telegram</div>
+                    <div class="prti-input-box__desc">Накануне начала курса вам придёт
+                        ссылка-прглашение на канал и в чат</div>
+                    <input type="text" name="" id="" placeholder="Напишите ваш ник	" class="prti-input-box__inp">
+                </div>
+            </div>
+        </div>
+        <div class="pop-reg-ti-bottom">
+            <div class="pop-reg-ti-bottom__left">Сумма к оплате:
+                <span>10 000 ₽ </span></div>
+            <div class="pop-reg-ti-bottom__right">
+                <div class="btn-t2 btn-t2--green">Перейти к оплате</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>

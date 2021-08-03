@@ -1,0 +1,156 @@
+$font1: 'SF UI Text', sans-serif;
+$font2: 'Konstant Grotesk Book';
+$orange: #e97f1c;
+
+a {
+	text-decoration: none;
+}
+
+html {
+	::-webkit-scrollbar {
+		width: 10px;
+		height: 10px;
+	}
+
+	::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	::-webkit-scrollbar-track {
+	}
+
+	::-webkit-scrollbar-track-piece {
+		background-color: #0F1116;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: $orange;
+		border-radius: 0;
+	}
+
+	::-webkit-scrollbar-corner {
+		background-color: #999;
+	}
+
+	::-webkit-resizer {
+		background-color: #666;
+	}
+}
+
+html,
+body {
+	overflow-x: hidden;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	color: #ffffff;
+	background: #0F1116;
+	font-family: $font1;
+	font-size: 21px;
+}
+
+.container {
+	box-sizing: border-box;
+	width: 1550px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 50px;
+}
+
+@media screen and (max-width:1000px) {
+	.container {
+		padding: 0 25px;
+	}
+}
+
+@media screen and (max-width:600px) {
+	.container {
+		padding: 0 20px;
+	}
+}
+
+*:focus {
+	outline: none;
+}
+
+.hide {
+	display: none;
+}
+
+.btn {
+	border: 2px solid $orange;
+	outline: none;
+	border-radius: 13px;
+	background-color: $orange;
+	display: inline-block;
+	padding: 15px 38px;
+	cursor: pointer;
+	text-align: center;
+	letter-spacing: -0.42px;
+	color: #000000;
+	font-weight: 300;
+	font-size: 21px;
+	box-sizing: border-box;
+	font-family: $font1;
+
+	&:hover {
+		color: $orange;
+		background: #0F1116;
+	}
+}
+
+
+.blur {
+	filter: blur(4px);
+}
+
+.clearfix {
+	clear: both;
+}
+
+.text-page__container {
+	width: 1060px;
+}
+.text-page {
+	color: #000000;
+	background: #ffffff;
+	padding: 100px 0 100px;
+	@include media((padding: (600: 50px 0),
+		));
+
+	.page-title {
+		font-size: 60px;
+		font-weight: 500;
+		letter-spacing: -0.92px;
+		margin-bottom: 40px;
+		@include media((font-size: (600: 21px),
+			));
+	}
+}
+
+
+.services-block__title {
+	/* Style for "Привет, я" */
+	color: #ffffff;
+	font-size: 40px;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: -0.75px;
+	margin-bottom: 30px;
+	line-height: 1.2;
+	span{
+		color: $orange;
+	}
+}
+
+.addtext {
+	max-width: 705px;
+	line-height: 1.2;
+	color: #ffffff;
+	font-size: 21px;
+	font-weight: 300;
+	font-style: normal;
+	letter-spacing: -0.42px;
+}

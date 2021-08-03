@@ -1,0 +1,148 @@
+.courses-page{
+    padding-top: 100px;
+    @include media((
+            padding-top: (600: vw(30)),
+            padding-bottom: (800: vw(50)),
+    ));
+    .training-top{
+        padding: 0 60px;
+        box-sizing: border-box;
+        @include media((
+                padding: (600: 0),
+        ));
+        &__title{
+            color: #000000;
+            font-size: 46px;
+            font-weight: 500;
+            letter-spacing: -0.92px;
+            @include media((
+                    font-size: (600: vw(22)),
+            ));
+        }
+        &__description{
+            margin-top: 20px;
+            opacity: 0.65;
+            color: #000000;
+            font-size: 21px;
+            letter-spacing: -0.43px;
+            max-width: 920px;
+            @include media((
+                    font-size: (600: vw(13)),
+            ));
+        }
+    }
+    .available-vacans{
+        margin-top: 175px;
+        @include media((
+                margin-top: (600: vw(50)),
+        ));
+        &__top{
+            color: #000000;
+            font-size: 32px;
+            font-weight: 500;
+            letter-spacing: -0.64px;
+            margin-bottom: 75px;
+            padding: 0 60px;
+            box-sizing: border-box;
+            @include media((
+                    font-size: (600: vw(18)),
+                    margin-bottom: (600: vw(20)),
+                    padding: (600: 0),
+            ));
+        }
+        &__center{
+            @include flex-row(30px, 30px);
+            @media all and (max-width: 600px) {
+                @include flex-row(20px, 20px);
+            }
+            .vacans-item{
+                @include flex-block(450px, 30px, 30px, true, 3);
+                min-height: 452px;
+                border-radius: 50px;
+                background-color: #6c16e7;
+                box-sizing: border-box;
+                padding: 60px 60px 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                @include media((
+                        padding: (600: vw(30)),
+                        border-radius: (600: vw(15)),
+                        min-height: (600: 200px),
+                ));
+                @media all and (max-width: 600px) {
+                    @include flex-block(200px, 20px, 20px, true, 1);
+                    display: flex;
+                    flex-basis: unset;
+                    width: calc(100% - 20px);
+                    max-width: calc(100% - 20px);
+                }
+                .title{
+                    color: #ffffff;
+                    font-size: 46px;
+                    font-weight: 500;
+                    letter-spacing: -0.92px;
+                    @include media((
+                            font-size: (600: vw(18)),
+                    ));
+                }
+                .bottom-block{
+                    .sfera{
+                        opacity: 0.5;
+                        color: #ffffff;
+                        font-size: 23px;
+                        font-weight: 400;
+                        margin-bottom: 60px;
+                        display: inline-block;
+                        @include media((
+                                font-size: (600: vw(14)),
+                                margin-bottom: (600: vw(20)),
+                        ));
+                    }
+                    .btn-row{
+                        display: flex;
+                        justify-content: space-between;
+                        .label{
+                            color: #ffffff;
+                            font-size: 17px;
+                            font-weight: 400;
+                            @include media((
+                                    font-size: (600: vw(12)),
+                            ));
+                        }
+                        .btn-arr{
+                            width: 49px;
+                            height: 32px;
+                            border-radius: 16px;
+                            border: 2px solid #ffffff;
+                            box-sizing: border-box;
+                            background: url("../img/ser-ar-w.svg") center center no-repeat;
+                            background-size: 100% auto;
+                            @include media((
+                                    width: (600: vw(35)),
+                                    height: (600: vw(24)),
+                                    border: (600: 1px solid #ffffff),
+                            ));
+                        }
+                    }
+                }
+                &:hover{
+                    .bottom-block{
+                        .btn-row{
+                            .btn-arr{
+                                background-color: white;
+                                background-image: url("../img/ser-ar-f.svg");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .available-courses__bottom{
+        margin-top: 170px;
+        p a{
+            color: #000;
+        }
+    }
+}
