@@ -43,15 +43,17 @@
 			color: $orange;
 			letter-spacing: -5.83px;
 			transform: translate(-50%, -50%);
-			animation: animLeftSlideshow 20s linear infinite;
 			@include media((font-size: (sm: vw3(216)),
 					letter-spacing: (sm: vw3(-4.88)),
-					animation-duration: (sm: 18s),
+					animation-duration: (sm: 80s),
 					margin-top: (sm: vw3(25)),
 			));
 
 			&_front {
 				color: $orange;
+			}
+			&.anima{
+				animation: animLeftSlideshow 120s linear infinite;
 			}
 		}
 	}
@@ -177,8 +179,8 @@
 			));
 
 			.tag {
-				margin-right: 20px;
-				margin-bottom: 20px;
+				margin-right: 10px;
+				margin-bottom: 10px;
 				color: #000000;
 				font-weight: 300;
 				font-size: 17px;
@@ -189,8 +191,8 @@
 				cursor: pointer;
 				transition: background-color 0.2s ease, color 0.2s ease;
 				@include media((
-						margin-right: (sm: vw3(18)),
-						margin-bottom: (sm: vw3(18)),
+						margin-right: (sm: vw3(9)),
+						margin-bottom: (sm: vw3(9)),
 						font-size: (sm: vw3(15)),
 						border-radius: (sm: vw3(3)),
 						padding: (sm: vw3(4) vw3(17)),

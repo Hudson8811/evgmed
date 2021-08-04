@@ -16,14 +16,16 @@
 		align-items: center;
 		justify-content: space-between;
 		width: 1870px;
+		padding: 0 80px;
 		@include media((
+				padding: (lg: 0 50px),
 				justify-content: (sm: center),
 		));
 		.left {
 			display: flex;
 			align-items: center;
 			.logo {
-				width: 184px;
+				width: 150px;
 				display: block;
 				@include media((
 						width: (sm: vw3(123)),
@@ -47,9 +49,9 @@
 				));
 				a {
 					color: #ffffff;
-					font-size: 25px;
+					font-size: 20px;
 					font-weight: 400;
-					letter-spacing: -0.5px;
+					letter-spacing: -.43px;
 					&:hover {
 						color: $orange;
 					}
@@ -57,13 +59,12 @@
 				div {
 					color: #ffffff;
 					opacity: 0.5;
-					font-size: 21px;
-					letter-spacing: -0.42px;
+					font-size: 15px;
 					font-weight: 300;
 				}
 			}
 			.btn {
-				margin-left: 103px;
+				margin-left: 61px;
 				@include media((
 						margin-left: (md: 0px),
 						position: (md: fixed),

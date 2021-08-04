@@ -4,7 +4,7 @@
 	z-index: 1;
 	&__img{
 		width: 100%;
-		height: 701px;
+		height: 605px;
 		position: relative;
 		@include media((
 			height: (md: 500px,sm: vw3(494)),
@@ -292,8 +292,7 @@
 		padding-top: 75px;
 		padding-bottom: 90px;
 		color: #fff;
-		background-color: #000;
-		background-image: linear-gradient(42deg, #000017 0, #000017 100%);
+		background-color: #0F1116;
 		@include media((
 				padding-top: (sm: vw3(34)),
 				padding-bottom: (sm: vw3(0)),
@@ -572,7 +571,7 @@
 .more-klients-grid .sep-line{
 	width: 100%;
 	height: 1px;
-	background-color: #f4f5f7;
+	background-color: $orange;
 	margin: 20px 0 55px;
 }
 

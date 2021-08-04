@@ -6,34 +6,22 @@ a {
 	text-decoration: none;
 }
 
+
+
+
 html {
-	::-webkit-scrollbar {
-		width: 10px;
-		height: 10px;
+	&::-webkit-scrollbar {
+		width: 7px;
 	}
 
-	::-webkit-scrollbar-button {
-		display: none;
-	}
-
-	::-webkit-scrollbar-track {
-	}
-
-	::-webkit-scrollbar-track-piece {
+	&::-webkit-scrollbar-track {
 		background-color: #0F1116;
 	}
 
-	::-webkit-scrollbar-thumb {
+	&::-webkit-scrollbar-thumb {
+		border-radius: 8px;
+		border: 1px solid #0F1116;
 		background-color: $orange;
-		border-radius: 0;
-	}
-
-	::-webkit-scrollbar-corner {
-		background-color: #999;
-	}
-
-	::-webkit-resizer {
-		background-color: #666;
 	}
 }
 
@@ -88,15 +76,18 @@ body {
 	border-radius: 13px;
 	background-color: $orange;
 	display: inline-block;
-	padding: 15px 38px;
 	cursor: pointer;
 	text-align: center;
-	letter-spacing: -0.42px;
 	color: #000000;
 	font-weight: 300;
-	font-size: 21px;
 	box-sizing: border-box;
 	font-family: $font1;
+	padding: 12px 27px;
+	letter-spacing: -.43px;
+	font-size: 17px;
+
+
+
 	@include media((
 			font-size: (sm: vw3(15)),
 			padding: (sm: vw3(10) vw3(20)),
