@@ -1,21 +1,4 @@
 .klients-page {
-
-	.mobile-title {
-		display: none;
-		margin-bottom: 25px;
-		margin-top: 30px;
-
-		color: #000000;
-		font-size: 23px;
-		font-weight: 500;
-		letter-spacing: -.92px;
-		@include media((display: (600: block),
-				margin-bottom: (600:vw(25)),
-				margin-top: (600:vw(30)),
-				font-size: (600:vw(23)),
-		));
-	}
-
 	.cycle-block {
 		display: block;
 		overflow: hidden;
@@ -23,7 +6,7 @@
 		box-sizing: border-box;
 		padding: 0 80px;
 		user-select: none;
-		@include media((padding: (lg: 0 50px, sm: 0 15px),
+		@include media((padding: (lg: 0 50px, sm: 0),
 		));
 
 		span {
@@ -36,7 +19,7 @@
 			z-index: 3;
 			overflow: hidden;
 			position: relative;
-			@include media((height: (lg: 605px, sm: 300px),
+			@include media((height: (md: 500px, sm: vw3(533)),
 			));
 
 			img {
@@ -54,17 +37,17 @@
 			top: 50%;
 			left: 50%;
 			display: inline-block;
-			font-weight: 900;
 			white-space: nowrap;
 			font-family: $font2;
 			font-size: 254px;
 			color: $orange;
 			letter-spacing: -5.83px;
 			transform: translate(-50%, -50%);
-			animation: animLeftSlideshow 12s linear infinite;
-			@include media((font-size: (sm: 70px),
-					letter-spacing: (sm: -2.8px),
-					animation-duration: (sm: 8s),
+			animation: animLeftSlideshow 20s linear infinite;
+			@include media((font-size: (sm: vw3(216)),
+					letter-spacing: (sm: vw3(-4.88)),
+					animation-duration: (sm: 18s),
+					margin-top: (sm: vw3(25)),
 			));
 
 			&_front {
@@ -77,6 +60,10 @@
 	.klients-main {
 		margin-top: 99px;
 		margin-bottom: 106px;
+		@include media((
+				margin-top: (sm: vw3(68)),
+				margin-bottom: (sm: vw3(17)),
+		));
 		.container {
 			width: 1284px;
 		}
@@ -84,6 +71,9 @@
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: 105px;
+			@include media((
+					margin-top: (sm: vw3(87)),
+			));
 			.tab {
 				margin-right: 19px;
 				margin-bottom: 19px;
@@ -98,6 +88,13 @@
 				font-size: 17px;
 				border-radius: 12px;
 				border: 1px solid rgba(255,255,255,0.5);
+				@include media((
+						margin-right: (sm: vw3(12)),
+						margin-bottom: (sm: vw3(12)),
+						padding: (sm: vw3(7) vw3(22)),
+						font-size: (sm: vw3(13)),
+						border-radius: (sm: vw3(7)),
+				));
 				&:hover {
 					border: 1px solid rgba(255,255,255,0.7);
 				}
@@ -120,14 +117,16 @@
 					width: (md: calc((100% + 16px) / 2), sm:100%),
 					margin-right: (md: -8px, sm:0),
 					margin-left: (md: -8px, sm:0),
+					margin-top: (sm:vw3(11)),
 			));
-
 		}
 
 		.more-row {
 			text-align: center;
 			margin-top: 50px;
-			@include media((margin-top: (600: vw(10)),
+			@include media((
+					margin-top: (sm: vw3(9)),
+					margin-bottom: (sm: vw3(50)),
 			));
 		}
 	}
@@ -144,6 +143,7 @@
 	@include media((width: (md: calc((100% - 48px) / 2), sm:100%),
 			margin-right: (md: 8px, sm:0),
 			margin-left: (md: 8px, sm:0),
+			margin-bottom: (sm:vw3(40)),
 	));
 
 	.img-block {
@@ -172,7 +172,8 @@
 			top: 0;
 			display: flex;
 			flex-wrap: wrap;
-			@include media((padding: (600: vw(13) vw(9) 0),
+			@include media((
+					padding: (sm: vw3(18) 0 0 vw3(18)),
 			));
 
 			.tag {
@@ -187,10 +188,12 @@
 				display: block;
 				cursor: pointer;
 				transition: background-color 0.2s ease, color 0.2s ease;
-				@include media((padding: (600: vw(8) vw(18) vw(6)),
-						font-size: (600: vw(10)),
-						border-radius: (600: vw(5)),
-						line-height: (600: 0.8),
+				@include media((
+						margin-right: (sm: vw3(18)),
+						margin-bottom: (sm: vw3(18)),
+						font-size: (sm: vw3(15)),
+						border-radius: (sm: vw3(3)),
+						padding: (sm: vw3(4) vw3(17)),
 				));
 
 				&:hover {
@@ -204,16 +207,21 @@
 	.info {
 		display: block;
 		margin-top: 18px;
+		@include media((
+				margin-top: (sm: vw3(18)),
+		));
 
 		.title {
 			display: block;
 			color: #ffffff;
 			font-size: 21px;
 			font-weight: 400;
-			line-height: 1.2;
+			line-height: 1.3;
 			letter-spacing: -0.42px;
 			transition: color 0.3s ease;
-			@include media((font-size: (600: vw(21)),
+			@include media((
+					font-size: (sm: vw3(18)),
+					letter-spacing: (sm: vw3(-0.42)),
 			));
 		}
 
@@ -225,8 +233,12 @@
 			font-size: 17px;
 			font-weight: 300;
 			letter-spacing: -0.34px;
-			line-height: 1.2;
-			@include media((font-size: (600: vw(14))
+			line-height: 1.3;
+			@include media((
+					max-width: (sm: vw3(240)),
+					margin-top: (sm: vw3(9)),
+					font-size: (sm: vw3(13)),
+					letter-spacing: (sm: vw3(-0.3)),
 			));
 		}
 	}

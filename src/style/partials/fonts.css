@@ -1,11 +1,13 @@
 @font-face {
-	font-family: 'Konstant Grotesk Book';
-	src: url('../fonts/KonstantGroteskBook.woff2') format('woff2'),
-	url('../fonts/KonstantGroteskBook.woff') format('woff');
+	font-family: 'Konstant Grotesk';
+	src: url('../fonts/KonstantGroteskRegular.woff2') format('woff2'),
+	url('../fonts/KonstantGroteskRegular.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
 }
+
+
 
 @font-face {
 	font-family: 'SF UI Text';

@@ -191,8 +191,8 @@ $resolution2: 600;
   @return (($px/$resolution2) * 100)+vw;
 }
 
-$resolution3 : 1000;
-@function vw2($px) {
+$resolution3 : 360;
+@function vw3($px) {
   @return (($px/$resolution3) * 100)+vw;
 }
 

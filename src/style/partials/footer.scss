@@ -1,6 +1,9 @@
 .footer {
 	background: #ffffff;
 	padding: 82px 0 70px;
+	@include media((
+			padding: (sm: vw3(57) 0 vw3(60)),
+	));
 	&__container{
 		width: 1870px;
 	}
@@ -13,8 +16,14 @@
 		display: flex;
 		justify-content: space-between;
 		margin-top: 100px;
+		@include media((
+				margin-top: (sm: vw3(39)),
+		));
 	}
 	&__logo{
+		@include media((
+			display: (sm: none),
+		));
 		a {
 			width: 184px;
 			display: block;
@@ -33,12 +42,22 @@
 		text-align: right;
 		letter-spacing: -0.83px;
 		transition: color 0.2s ease;
+		@include media((
+				font-size: (sm: vw3(29)),
+				line-height: (sm: vw3(29)),
+				letter-spacing: (sm: vw3(-1.6)),
+		));
 		&:hover{
 			color: $orange;
 		}
 	}
 	&__row{
 		display: flex;
+		&--left{
+			@include media((
+					display: (md: none),
+			));
+		}
 	}
 	&__link{
 		color: #000000;
@@ -46,8 +65,15 @@
 		font-size: 29px;
 		opacity: 0.7;
 		transition: color 0.2s ease,opacity 0.2s ease;
+		@include media((
+				font-size: (sm: vw3(18)),
+				letter-spacing: (sm: vw3(-1)),
+		));
 		+.footer__link{
 			margin-left: 67px;
+			@include media((
+					margin-left: (sm: vw3(40)),
+			));
 		}
 		&:hover{
 			color: $orange;

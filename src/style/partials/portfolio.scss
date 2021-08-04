@@ -6,6 +6,9 @@
 		width: 100%;
 		height: 701px;
 		position: relative;
+		@include media((
+			height: (md: 500px,sm: vw3(494)),
+		));
 		img{
 			width: 100%;
 			height: 100%;
@@ -22,8 +25,8 @@
 	margin: 0 auto;
 }
 .portfolio-page{
-    padding-top: 10px;
-    padding-bottom: 0px;
+    padding-top: 0;
+    padding-bottom: 0;
 	background: #ffffff;
 	color: #000000;
     .container{
@@ -39,6 +42,9 @@
 
     .portfolio-top{
 		padding: 74px 0 64px;
+		@include media((
+				padding: (sm: vw3(25) 0 vw3(47)),
+		));
 		&__title{
 			font-size: 60px;
 			font-weight: 400;
@@ -46,10 +52,19 @@
 			text-align: center;
 			letter-spacing: -1.2px;
 			line-height: normal;
+			@include media((
+					font-size: (sm: vw3(22)),
+					letter-spacing: (sm: vw3(-1.2)),
+			));
 		}
 		&__text{
 			font-size: 25px;
 			margin-top: 95px;
+			@include media((
+					font-size: (sm: vw3(13)),
+					margin-top: (sm: vw3(42)),
+					max-width: (sm: vw3(280)),
+			));
 			i{
 				font-weight: 300;
 			}
@@ -68,14 +83,24 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			@include media((
+					margin-top: (sm: vw3(14)),
+			));
 			&-inner{
 				background-color: #f3f5f6;
 				display: flex;
 				align-items: center;
 				padding: 3px 20px;
 				border-radius: 13px;
+				@include media((
+						border-radius: (sm: vw3(5)),
+						padding: (sm: vw3(0)),
+				));
 				+.portfolio-top__tags-inner{
 					margin-top: 20px;
+					@include media((
+							margin-top: (sm: vw3(6)),
+					));
 				}
 			}
 		}
@@ -89,6 +114,11 @@
 			letter-spacing: -0.5px;
 			color: #696969;
 			padding: 12px 40px;
+			@include media((
+					font-size: (sm: vw3(13)),
+					letter-spacing: (sm: vw3(-0.7)),
+					padding: (sm: vw3(9) vw3(18)),
+			));
 			&:hover{
 				color: #000000;
 			}
@@ -102,6 +132,10 @@
 			line-height: normal;
 			letter-spacing: -0.5px;
 			color: #696969;
+			@include media((
+					font-size: (sm: vw3(13)),
+					letter-spacing: (sm: vw3(-0.7)),
+			));
 		}
     }
 
@@ -115,24 +149,30 @@
         padding-bottom: 50px;
         padding-top: 80px;
 		font-size: 25px;
-		line-height: 1.2;
+		line-height: 1.3;
         .text-portfolio_title{
 			font-weight: 400;
 			font-size: 40px;
-            line-height: 1.2;
+            line-height: 1.3;
             margin-bottom: 20px;
 			letter-spacing: -1.6px;
         }
         p{
             max-width: 1240px;
             margin-bottom: 25px;
+			@include media((
+					margin-bottom: (sm: vw3(13)),
+			));
         }
         .text-portfolio{
-			width: 1040px;
+			width: 100%;
 			padding: 0 40px 70px;
 			margin: 0 auto;
 			box-sizing: border-box;
-			max-width: 100%;
+			max-width: 960px;
+			@include media((
+					padding: (sm: 0),
+			));
 			i{
 				font-weight: 300;
 			}
@@ -204,7 +244,7 @@
             margin-bottom: 50px;
 			font-weight: 400;
 			font-size: 40px;
-			line-height: 1.2;
+			line-height: 1.3;
 			letter-spacing: -1.6px;
         }
         .flex-block{
@@ -216,7 +256,7 @@
                 width: 49%;
                 flex-shrink: 0;
                 font-size: 25px;
-                line-height: 1.2;
+                line-height: 1.3;
                 .ah3{
                     font-weight: bold;
                     margin-bottom: 30px;
@@ -237,7 +277,7 @@
             text-align: center;
             background: #f3f5f6;
             font-size: 25px;
-            line-height: 1.2;
+            line-height: 1.3;
             padding-top: 75px;
             padding-bottom: 60px;
             font-weight: 300;
@@ -254,12 +294,21 @@
 		color: #fff;
 		background-color: #000;
 		background-image: linear-gradient(42deg, #000017 0, #000017 100%);
+		@include media((
+				padding-top: (sm: vw3(34)),
+				padding-bottom: (sm: vw3(0)),
+		));
         .ah2{
             margin-bottom: 75px;
 			font-weight: 400;
 			font-size: 40px;
-			line-height: 1.2;
+			line-height: 1.3;
 			letter-spacing: -1.6px;
+			@include media((
+					margin-bottom: (sm: vw3(13)),
+					font-size: (sm: vw3(18)),
+					letter-spacing: (sm: vw3(-2)),
+			));
         }
         .flex-block{
             display: flex;
@@ -344,10 +393,6 @@
     .portfolio-page .more-klients-grid .flex-block .klients-item {
         width: 49%;
         display: block;
-        margin-bottom: 50px;
-    }
-    .portfolio-page .more-klients-grid {
-        padding-top: 100px;
     }
     .video-modal.hide .fancybox-button{
         width: 80px;
@@ -357,7 +402,7 @@
     }
 }
 
-@media screen and (max-width:768px){
+@media screen and (max-width:801px){
     .portfolio-page .banner-portfolio {
         height: 220px;
     }
@@ -370,27 +415,7 @@
         font-size: 17.4px;
         line-height: 21px;
     }
-    .portfolio-page .top-portfolio .flex-left .name-client {
-        font-size: 17.4px;
-        margin-bottom: 15px;
-    }
-    .portfolio-page .top-portfolio {
-        padding-bottom: 40px;
-        display: block;
-    }
-    .portfolio-page .top-portfolio .flex-left{
-        width: 100%;
-    }
-    .portfolio-page .top-portfolio .flex-right{
-        width: 100%;
-    }
-    .portfolio-page .top-portfolio .flex-right a {
-        line-height: 36px;
-        font-size: 14.8px;
-        padding: 0 18px;
-        margin: 14px 7px 0;
-        border-radius: 22px;
-    }
+
     .portfolio-page .section-portfolio {
         padding-bottom: 30px;
         padding-top: 50px;
@@ -433,9 +458,6 @@
         margin-bottom: 14px;
     }
 
-    .portfolio-page .more-klients-grid {
-        padding-top: 80px;
-    }
     .portfolio-page .more-klients-grid .flex-block .klients-item{
         width: 100%;
     }
@@ -448,7 +470,7 @@
 }
 
 
-@media screen and (max-width:600px){
+@media screen and (max-width:800px){
     .portfolio-page .container-inner{
         padding-left: 20px;
         padding-right: 20px;
@@ -456,47 +478,21 @@
     .portfolio-page .banner-portfolio {
         height: vw2(220);
     }
-    .portfolio-page .top-portfolio .flex-left .link-portfolio {
-        font-size: vw2(16);
-        line-height: vw2(16);
-    }
-    .portfolio-page .top-portfolio .flex-left .name-portfolio {
-        font-size: vw2(30.7);
-        line-height: vw2(35);
-        margin-bottom: vw2(23);
-    }
-    .portfolio-page .back-portfolio {
-        font-size: vw2(17.4);
-        line-height: vw2(21);
-    }
-    .portfolio-page .top-portfolio .flex-left .name-client {
-        font-size: vw2(17.4);
-        margin-bottom: vw2(15);
-    }
-    .portfolio-page .top-portfolio {
-        padding-top: vw2(45);
-        padding-bottom: vw2(40);
-    }
-    .portfolio-page .top-portfolio .flex-right a {
-        line-height: vw2(36);
-        font-size: vw2(14.8);
-        padding: 0 vw2(18);
-        margin: vw2(14) vw2(7) 0;
-        border-radius: vw2(22);
-    }
+
     .portfolio-page .section-portfolio {
         padding-bottom: vw2(30);
         padding-top: vw2(50);
-        font-size: vw2(16.5);
-        line-height: vw2(21);
+        font-size: vw3(13);
+        line-height: 1.3;
     }
     .portfolio-page .section-portfolio .text-portfolio_title {
-        font-size: vw2(26.5);
-        line-height: vw2(30);
-        margin-bottom: vw2(25);
+        font-size: vw3(18);
+        line-height: 1.3;
+        margin-bottom: vw3(13);
     }
     .portfolio-page .section-portfolio .text-portfolio {
         padding-bottom: vw2(21);
+        padding-right: vw3(40);
     }
     .portfolio-page .section-portfolio .row .block .video-link {
         height: vw2(290);
@@ -506,32 +502,32 @@
         margin-bottom: 10px;
     }
     .portfolio-page .text-section-portfolio .ah2 {
-        margin-bottom: 34px;
-        font-size: 26.5px;
-        line-height: 27px;
+        margin-bottom: vw3(13);
+		font-size: vw3(18);
+		line-height: 1.3;
     }
     .portfolio-page .text-section-portfolio .flex-block{
         display: block;
     }
     .portfolio-page .text-section-portfolio .flex-block>div .ah3 {
         font-weight: 700;
-        margin-bottom: 20px;
+        margin-bottom: vw3(13);
     }
     .portfolio-page .text-section-portfolio .flex-block>div {
         width: 100%;
-        font-size: 17.5px;
-        line-height: 21px;
+		font-size: vw3(13);
+		line-height: 1.3;
     }
     .portfolio-page .text-section-portfolio .flex-block>div ol li {
-        margin-bottom: 14px;
+		margin-bottom: vw3(13);
     }
 
-    .portfolio-page .more-klients-grid {
-        padding-top: 80px;
-    }
     .portfolio-page .more-klients-grid .flex-block .klients-item{
         width: 100%;
     }
+	.portfolio-page .text-section-portfolio{
+		padding-top: vw3(32);
+	}
 }
 
 .disable-images{
