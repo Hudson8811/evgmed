@@ -141,7 +141,8 @@
 	line-height: 1;
 	font-size: 17px;
 	height: 40px;
-	border-radius: 24px;
+    border-radius: 13px;
+    border-radius: 13px;
 	letter-spacing: -.4px
 }
 
@@ -151,7 +152,7 @@
 
 .brif__radios-block .brif-rad-item input:checked+.brif-rad-item__label {
 	opacity: 1;
-	color: #fff;
+	color: #000;
 	background: $orange;
 	border-color: $orange;
 }
@@ -352,7 +353,7 @@
 	}
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:800px) {
 	.brif-btn {
 		margin: 0 auto
 	}
@@ -363,14 +364,10 @@
 		display: -webkit-box;
 		display: -ms-flexbox;
 		display: flex;
-		padding: 2.1875vw 3.125vw 1.5625vw;
 		height: auto;
-		font-size: 3.4375vw;
 		font-weight: 400;
 		line-height: .8;
-		border-radius: 4.6875vw;
-
-		border-radius: 5.3125vw;
+		border-radius: 1.94444vw;
 		padding: 3.9vw 3vw 3.3vw;
 		font-size: 3.75vw;
 	}
@@ -411,27 +408,23 @@
 	}
 	.brif .btn-row .custom-files{
 		margin-right: 0;
+      width: 100%;
 	}
 	.brif .btn-row{
 		flex-direction: column;
 		align-items: center;
 	}
 	.brif .brif-btn {
-		color: #fff;
-		font-weight: 400;
-		width: 215px;
+		width: 100%;
 		height: auto;
-		font-size: 3.75vw;
-		line-height: .8;
-		border-radius: 4.6875vw;
-		min-width: 30vw;
-		padding: 3.9vw 5.625vw 3.3vw;
-
-		margin-top: 45px;
+      padding: vw3(13) 5.55556vw;
+		margin-top: vw3(13);
 	}
 	.container .brif {
 		margin-bottom: 15.625vw
 	}
+
+
 }
 
 
@@ -496,6 +489,11 @@
 	border-color: #000;
 	padding: 8px 27px 8px;
 	font-size: 17px;
+  @include media((
+          font-size: (sm: vw3(15)),
+          letter-spacing: (sm: vw3(-0.2)),
+          width: (sm: 100%),
+  ));
 }
 
 .inputfile:focus + label,
@@ -508,13 +506,21 @@
 	display: inline-block;
 	vertical-align: middle;
 	margin-right: 15px;
+    @include media((
+            width: (sm: vw3(28)),
+            margin-right: (sm: vw3(15)),
+    ));
 }
 .inputfile + label span{
 	vertical-align: middle;
+  @include media((
+          display: (sm: inline-block),
+  ));
 }
 .inputfile + label {
 	cursor: pointer;
-}
-.inputfile:focus + label {
-	opacity: 1;
+  @include media((
+          padding-top: (sm: vw3(9)),
+          padding-bottom: (sm: vw3(9)),
+  ));
 }
